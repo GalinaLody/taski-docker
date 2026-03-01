@@ -32,5 +32,5 @@ jobs:
       # Вызываем flake8 и указываем ему,
       # что нужно проверить файлы только в папке backend/
       run:  |
-        python -m isort backend/ --Check
+        python -m isort backend/ --check
         python -m flake8 backend/
