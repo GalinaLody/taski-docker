@@ -27,10 +27,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip setuptools
         pip install flake8==6.0.0 isort==5.*
+        pip install -r ./backend/requirements.txt
     # Запускаем flake8
-    - name: Test with flake8
+    - name: Test with flake8 and django tests
       # Вызываем flake8 и указываем ему,
       # что нужно проверить файлы только в папке backend/
       run:  |
         python -m isort backend/ --check
         python -m flake8 backend/
+        cd backend/
+        python manage.py test
